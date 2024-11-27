@@ -23,11 +23,13 @@ std::cerr << "PrintResult() called (z=" << z << ")\n";
 
 int main()
 {
-int  x{GetUserInput()};
-int  y{GetUserInput()};
-
-int z {add(x,y)};
-PrintResult(z);
+std::cerr << "main() called \n";
+    int  x{GetUserInput()};
+std::cerr << "main::x  = " << x << "\n";
+    int  y{GetUserInput()};
+std::cerr << "main::y = " << y << "\n";
+    int z {add(x,y)};
+    PrintResult(z);
 return 0;
 
 }
