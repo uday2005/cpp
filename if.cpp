@@ -2,16 +2,7 @@
 
 bool isprime(int x)
 {
-    if (x == 2)
-        return true;
-    else if (x == 3)
-        return true;
-    else if (x == 5)
-        return true;
-    else if (x == 7)
-        return true;
-    
-    return false;
+    return (x== 2 || x== 3||x==5||x==7);
 }
  int main()
 {
@@ -27,3 +18,4 @@ bool isprime(int x)
 
 // this solution will be only valid if the number will be very small 
 // as in the question only we have 0 to 9
+
