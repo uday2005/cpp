@@ -1,7 +1,10 @@
 #include <iostream>
 
-char GetOperations(char sign)
+char GetOperations()
 {
+// we actually need not to give parameters in get operation function  as it is not 
+// using the existing values from othe rfunction
+    char sign{};
     std::cout << "enter the operation you want to do" << '\n' ;
     std::cin >> sign ;
     return sign;
@@ -38,7 +41,7 @@ int main()
 //std::cout << "y value is " <<  y << '\n';
 //std::cout << "the operands is "  << sign << '\n';
 
-    char sign{GetOperations(sign)};
+    char sign{GetOperations()};
 
     Printresult(x,sign,y);
     return 0;
