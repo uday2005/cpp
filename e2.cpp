@@ -14,27 +14,32 @@ double GetNumbersdouble ()
     return num;
 }
 
+void Printresult(double x ,char sign ,double y)
+{
+    double result{};
+
+    if (sign == '+')
+        result = x+y;
+    else if (sign == '-')
+        result = x-y;
+    else if(sign == '*')
+        result = x*y;
+    else if (sign == '/')
+        result = x/y;
+
+    std::cout << x << ' ' << sign << ' ' << y << " is " << result << '\n';
+
+}
 int main()
 {
     double x {GetNumbersdouble()};
     double y {GetNumbersdouble()};
-std::cout << "x value is " << x << '\n';
-std::cout << "y value is " <<  y << '\n';
+//std::cout << "x value is " << x << '\n';
+//std::cout << "y value is " <<  y << '\n';
+//std::cout << "the operands is "  << sign << '\n';
 
     char sign{GetOperations(sign)};
-std::cout << "the operands is "  << sign << '\n';
-    if (sign == '+')
-    std::cout << "The value of " <<x << " " << sign << " " << y << " is " << x + y << '\n';
-    if (sign == '-')
-    std::cout << "The value of " <<x  << " "<< sign << y << " is " << x - y << '\n';
-    if (sign == '*')
-    std::cout << "The value of " <<x << " " << sign << y << " is " << x * y << '\n';
-    if (sign == '/')
-    std::cout << "The value of " <<x  << " "<< sign << y << " is " << x / y << '\n';
-    else
-    std::cout << " ";
-    
-    
 
-
+    Printresult(x,sign,y);
+    return 0;
 }
