@@ -13,12 +13,17 @@ int main ()
     // so when we use th std::cin it just reads name and stop after encounting the whitespace
     //std::ws do that it gives std::cin to ignore the take the th ewhitespace in input 
 
-    std::cout << "what is your favourite color" <<'\n';
-    std::string color{};
-    //std::cin >> color;
-    std::getline(std::cin >> std::ws, color);
+    // std::cout << "what is your age" <<'\n';
+    // std::string age{};
+    // //std::cin >> color;
+    // std::getline(std::cin >> std::ws, age);
+    int age = 25;
 
-    std::cout << "Your name is " << name<< " and your favourite color is " << color <<'\n';
+
+    int letter = static_cast<int>(name.length());
+// so here the name.length() gives unsigned values and age is giving signed values so we can do add 
+//operation directly to them 
+    std::cout << "Your age " <<" + " << "length of name is" << letter + age << '\n';
 
 //so the thing is we input our name and it will of only one letter without whitespace
 //then this will run fine and ask next what is your favourit ecolor and proceed to do so
@@ -30,5 +35,12 @@ int main ()
 
 // so to take the input as on eline we may use the inbulit function 
 //std::getline which will tak etwo thing as input
+
+// to know length of std::string function we use 
+    std::cout << "The length of name " << name.length() <<'\n';
+
+//Although std::string is required to be null-terminated 
+//(as of C++11), the returned length of a std::string does not include the implicit null-terminator character
+//Do not pass std::string by value, as it makes an expensive copy
     return 0;
 }
