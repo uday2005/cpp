@@ -1,27 +1,42 @@
+#include <cmath>
+
+double x{ std::pow(3.0, 4.0) }; // 3 to the 4th power
+//we dont have any arithmetic e expression for calculationg arithmetic exponent
+
+// we can explicitly define our own power function
+
+//the result of pow not be good due to input of double
+//and that  is beacusing of rounding off
+
+#include <cassert> // for assert
+#include <cstdint> // for std::int64_t
 #include <iostream>
 
-int main ()
+// note: exp must be non-negative
+// note: does not perform range/overflow checking, use with caution
+constexpr std::int64_t powint(std::int64_t base, int exp)
 {
-    constexpr int x {5};
-    constexpr int y {2};
+	assert(exp >= 0 && "powint: exp parameter has negative value");
 
+	// Handle 0 case
+	if (base == 0)
+		return (exp == 0) ? 1 : 0;
 
-    int z = x/y;
-    std::cout << z << '\n';
+	std::int64_t result{ 1 };
+	while (exp > 0)
+	{
+		if (exp & 1)  // if exp is odd
+			result *= base;
+		exp /= 2;
+		base *= base;
+	}
 
-    // so when we use the division operator between the two operand what computer does is thta
-    //if either of the operand is floating point numbers then it will gives floating point numbers
-    // but when we do have two integers then it will give just integer valur by drooping waht is afterwars the decimal
-    
-    // so how do we get the floating values back after using  division operator
-    //we will be using statics cast that is used for type conversion
+	return result;
+}
 
-    double p = static_cast<double>(x)/y;
-    std::cout << p<< '\n';
+int main()
+{
+	std::cout << powint(7, 12) << '\n'; // 7 to the 12th power
 
-    double  q = static_cast<double>(x)/ static_cast<double>(y);
-    std::cout << q << '\n';
-
-    double r = x/y;  // here we are changing type conversion implicitly thta is not working here
-    std::cout << r << '\n';  // so we should think of  already explicitly type casting
+	return 0;
 }
