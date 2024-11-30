@@ -13,7 +13,7 @@ std::string GetName()
 {
     std::cout << "Enetr the Name of the Person: ";
     std::string name {};
-    std::cin >> name;
+    std::getline(std::cin >>std::ws , name);
     return name;
 }
 
@@ -31,6 +31,6 @@ int main()
     else
     std::cout << name2  << "(" << age2<< ")" << " older than " << name1 << "(" << age1<< ")" <<'\n';
 
-
+    //so the cin jsut break at the first whitespace so go fix this we can use get line function
     return 0;
 }
